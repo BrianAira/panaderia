@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'presentacion/menu.dart';
 import 'config/locator.dart';
 
-void main() {
-  setupLocator(); // Inicializa el locator antes de ejecutar la app
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  setupLocator(); // Este usa getDatabasesPath() internamente
   runApp(const MyApp());
 }
 

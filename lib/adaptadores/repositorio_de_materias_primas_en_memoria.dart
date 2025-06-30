@@ -36,10 +36,16 @@ class RepositorioDeMateriasPrimasEnMemoria
       MateriaPrima(id: 5, descripcion: "Manteca", cantidadDisponible: 8000),
     );
     agregarMateriaPrima(
-      MateriaPrima(id: 6, descripcion: "Huevos", cantidadDisponible: 500),
+      MateriaPrima(
+        id: 6, 
+        descripcion: "Huevos", 
+        cantidadDisponible: 500),
     );
     agregarMateriaPrima(
-      MateriaPrima(id: 7, descripcion: "Leche", cantidadDisponible: 15000),
+      MateriaPrima(
+        id: 7, 
+        descripcion: "Leche", 
+        cantidadDisponible: 15000),
     );
     agregarMateriaPrima(
       MateriaPrima(

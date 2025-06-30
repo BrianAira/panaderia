@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:panaderia/presentacion/pantalla_agregar_cliente.dart';
+import 'package:panaderia/presentacion/pantalla_agregar_producto.dart';
 import 'pantalla_de_ingreso_de_pedidos.dart';
 import 'pantalla_de_ingreso_de_materias_primas.dart';
 import 'pantalla_de_calendario_de_pedidos.dart';
@@ -52,6 +54,30 @@ class Menu extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(minimumSize: const Size(250, 60)),
               child: const Text('Calendario de Pedidos'),
+            ),
+            const SizedBox(height: 28),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PantallaAgregarCliente(),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(minimumSize: const Size(250, 60)),
+              child: const Text('Agregar cliente'),
+            ),
+            const SizedBox(height: 28),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                MaterialPageRoute(
+                  builder: (context)=> const PantallaAgregarProducto()));
+              },
+              style: ElevatedButton.styleFrom(minimumSize: const Size(250, 60)),
+              child: const Text('Agregar Producto'),
             ),
           ],
         ),

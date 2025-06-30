@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:panaderia/dominio/puertos_de_repositorios/repositorio_de_pedidos.dart';
 import '../dominio/entidades/cliente.dart';
 import '../dominio/entidades/producto.dart';
 import '../dominio/entidades/pedido.dart';
@@ -16,6 +17,7 @@ class PantallaDeIngresoDePedidos extends StatefulWidget {
 
 class _PantallaDeIngresoDePedidosState
     extends State<PantallaDeIngresoDePedidos> {
+  final _repositorioPedidos = locator<RepositorioDePedidos>();
   Cliente? _clienteSeleccionado;
   DateTime _fechaEntrega = DateTime.now().add(const Duration(days: 1));
   final List<ProductoDetalle> _productosPedidos = [];
@@ -254,8 +256,16 @@ class _PantallaDeIngresoDePedidosState
                   onPressed:
                       _productosPedidos.isEmpty || _clienteSeleccionado == null
                           ? null
-                          : () {
+                          : () async{
                             // Aquí iría la lógica para guardar el pedido
+                            final pedido = Pedido(
+                              id: DateTime.now().millisecondsSinceEpoch,
+                              fecha:_fechaEntrega,
+                              cliente: _clienteSeleccionado!,
+                              detalleProductos: _productosPedidos,
+                            );
+
+                            await _repositorioPedidos.agregarPedido(pedido);
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                 content: Text('Pedido creado exitosamente'),
